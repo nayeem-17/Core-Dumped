@@ -1,0 +1,69 @@
+Comment procedure - DONE
+React procedure - DONE
+Tag TRIGGER - DONE
+Cascade trigger-- update delete
+UpdatedAt trigger - DONE
+
+searching 
+profile tag question article
+"i love catfish" 
+%i% union %love% union %catfish%
+exec procedure PROCEDUREName(:a,:b, , ,)
+related question/article
+tag 
+
+schema//
+add profile_interest table
+add message table
+add notification table
+
+//frontend
+homepage furnish
+profile 
+question/article  
+tag
+adding image option 
+
+???image -- image link -- 
+/image/upload  
+
+
+//
+
+add reputation field to profile DONE
+adding on delete on profile DONE
+notification table DONE
+    field:
+        profile_id
+        type
+        link
+        message
+        is_read
+        created_at
+        updated_at
+
+trigger on react DONE
+trigger on posting question and answer DONE
+
+
+// 
+QUESTION - VIEWS, UPVOTES, DOWNVOTES, ANSWER_COUNT 
+ANSWER - UPVOTES, DOWNVOTES 
+ARTICLE - VIEWS, UPVOTES, DOWNVOTES
+PROFILE -  OPTIONAL: [ANSWER_COUNT,QUESTION_COUNT,ARTICLE_COUNT] ;
+THESE FIELDS(EXCEPT VIEWS) CHANGE ONLY BY CORRESPONDING UPDATE,INSERT,DELETE TRIGGERS 
+
+//
+REPOSITORY FOR REACTIONS --- please don't make two different routes for removing and adding react :v :v // procedure hole valoi hoy - DONE
+delete question repository,route,controller DONE
+edit,delete article repository,route,controller DONE
+edit,delete answer repository,route,controller DONE
+edit,delete comment repository,route,contorller DONE
+search routes(profile,tags,question,articles) --- sort by query --- we don't need those search procedures actually.. query diei change kore debo
+
+
+
+
+
+check if notification works properly
+update swagger yml FFS

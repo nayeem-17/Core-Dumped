@@ -1,0 +1,1408 @@
+openapi: "3.0.2"
+info:
+  title: "CoreDumped Backend API"
+  version: "1.0.0"
+  contact:
+    name: "naim"
+servers:
+  - url: http://localhost:8000
+paths:
+  /auth/token:
+    post:
+      responses:
+        "200":
+          description: ok
+        "404":
+          description: User not found
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Invalid email or password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: youcannotseeme
+                password:
+                  type: string
+                  example: password
+
+      tags:
+        - "profile-auth"
+  /auth/register:
+    post:
+      responses:
+        "200":
+          description: ok
+        "404":
+          description: User not found
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Invalid email or password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: youcannotseeme
+                first_name:
+                  type: string
+                  example: John
+                last_name:
+                  type: string
+                  example: Cena
+                email:
+                  type: string
+                  example: abc@gmail.com
+                password:
+                  type: string
+                  example: password
+      tags:
+        - "profile-auth"
+
+        # answer get
+  /answer/add:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - answer
+      security:
+        - bearAuth: []
+  /answer/user/{id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - answer
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          example: USER_ID
+  /answer/question/{question_id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - answer
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /answer/{answer_id}:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - answer
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: answer_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /answer/update/{answer_id}:
+    put:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - answer
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: answer_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /answer/delete/{answer_id}:
+    delete:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - answer
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: answer_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /answer/{answer_id}/voteinfo:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - answer
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: answer_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /answer/{answer_id}/upvote:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - answer
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: answer_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /answer/{answer_id}/downvote:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - answer
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: answer_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /article/add:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+  /article/user/{id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          example: USER_ID
+  /article/{article_id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /article/{article_id}/edit:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /article/{article_id}/remove:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /article/search:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+  /article/{article_id}/related:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+  /article/{article_id}/view:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /article/{article_id}/upvote:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /article/{article_id}/downvote:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /article/{article_id}/voteinfo:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /comment/add:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - comment
+      security:
+        - bearAuth: []
+  /comment/{comment_id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - comment
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: comment_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /comment/question/{question_id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - comment
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /comment/answer/{answer_id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - comment
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: answer_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /comment/article/{article_id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - comment
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /comment/user/{user_id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - comment
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: user_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /comment/update/{comment_id}:
+    put:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - comment
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: comment_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /comment/delete/{comment_id}:
+    delete:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - comment
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: comment_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /notification:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - notification
+      security:
+        - bearAuth: []
+  /notification/{notification_id}:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - notification
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: notification_id
+          required: true
+          schema:
+            type: string
+          example: 1
+
+  /profile/{username}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+          example: 1
+  /profile/{username}/stats:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+          example: 1
+  /profile/follow/{following}:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: following
+          required: true
+          schema:
+            type: string
+          example: 1
+  /profile/unfollow/{following}:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: following
+          required: true
+          schema:
+            type: string
+          example: 1
+  /profile/follows/{username}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+          example: 1
+  /profile/{username}/followers:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+          example: 1
+  /profile/{username}/following:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+          example: 1
+  /profile/edit/profilePicture:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+  /profile/edit/changePassword:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+  /profile/edit/updateInfo:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+  /profile/delete:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+  /profile/search:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+  /profile/message/get:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - message
+      security:
+        - bearAuth: []
+  /profile/message/send:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - message
+      security:
+        - bearAuth: []
+  /profile/message/delete/{message_id}:
+    delete:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - message
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: message_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /question/add:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+  /question/{question_id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+    delete:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /question/search:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+  /question/user/{username}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+          example: 1
+  /question/{question_id}/related:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /question/{question_id}/voteinfo:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /question/{question_id}/edit:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /question/{question_id}/view:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /question/{question_id}/upvote:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /question/{question_id}/downvote:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /tag/{tag_id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: tag_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /tag/user/{username}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+          example: 1
+  /tag/question/{question_id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /tag/question/{question_id}/add:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /tag/question/{question_id}/remove:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /tag/article/{article_id}:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /tag/article/{article_id}/add:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /tag/article/{article_id}/remove:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /tag/search:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+  /tag/user/{username}/add:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+          example: 1
+  /tag/user/{username}/remove:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+          example: 1
+  /tag/{tag_id}/thumbnail:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - tag
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: tag_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /question/{question_id}/thumbnail:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - question
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: question_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /article/{article_id}/thumbnail:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - article
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: article_id
+          required: true
+          schema:
+            type: string
+          example: 1
+  /profile/{username}/avatar:
+    get:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      tags:
+        - profile
+      security:
+        - bearAuth: []
+      parameters:
+        - in: path
+          name: username
+          required: true
+          schema:
+            type: string
+          example: 1
+
+  /file/upload:
+    post:
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Unauthorized
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      tags:
+        - file
+components:
+  securitySchemes:
+    bearAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
