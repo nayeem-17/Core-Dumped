@@ -1,0 +1,14 @@
+.btn.post-button{
+    background: inherit;
+    display: block;
+    font-size: 3rem;
+}
+
+.btn.post-button:hover{
+    background: none;
+}
+
+.editor{
+    top: 80px;
+    background-color: aliceblue;
+}

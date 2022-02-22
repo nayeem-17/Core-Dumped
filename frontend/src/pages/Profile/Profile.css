@@ -1,0 +1,92 @@
+.profile-picture {
+    display: block;
+    background-color: var(--clr-orange-2);
+    border-radius: 106.5px/107.5px;
+    height: 128px;
+    width: 128px;
+}
+.profile-picture.picture{
+    position: inherit;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-basicinfo{
+    position: relative;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn.follow{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.profile-questions{
+    width: 100%;
+    height: 400px;
+    overflow: scroll;
+}
+
+
+
+
+
+
+
+.profile-info-container{
+    align-items: flex-end;
+    /* background-color:darkgray; */
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    min-height: 577px;
+    padding: 0 4px;
+    width: 1012px;
+}
+
+.profile-info-top{
+    display: grid;
+    grid-template-columns: repeat(8,auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    justify-content: start;
+    margin-left: 2rem;
+    width: 1001px;
+    background-color: var(--clr-gainsboro) ;/*#857979; */
+    
+    border-radius: 19px;
+    height: 74px;
+    margin-right: 3px;
+    margin-top: 4px;    
+}
+
+.profile-info-links{
+    color: var(--clr-orange-5);
+    text-decoration: none;
+    padding: .5rem 1rem;
+    align-self:center;
+}
+
+.profile-info-links:hover{
+    background-color: var(--clr-primary-3);
+    border-radius: 4px;
+    transition: all 0.2s ease-out;
+}
+
+.profile-info-description{
+    background-color: #a48787;
+    height: 490px;
+    margin-right: 3px;
+    margin-top: 9px;
+    width: 998px;
+
+}
+
+
+
+
+

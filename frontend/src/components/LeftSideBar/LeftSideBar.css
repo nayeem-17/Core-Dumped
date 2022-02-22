@@ -1,0 +1,9 @@
+.leftsidebar-element{
+    align-self: flex-end;
+}
+
+.link.leftsidebar{
+    color: rgb(40, 40, 41);
+    padding: 1rem;
+    align-self: flex-end;
+}

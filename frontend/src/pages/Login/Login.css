@@ -1,0 +1,21 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+}
+
+.login-form{
+    justify-self: center;
+    align-self: center;
+    display: flex;
+}
+
+.login-form-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.login-form-texts {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+}

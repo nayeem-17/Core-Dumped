@@ -1,0 +1,24 @@
+/* body{
+    display: center;
+    align-self: center;
+    background-color:var(--clr-primary-0); 
+    background-image: none;
+    color: #dae6eb;
+}
+
+.searchbox{
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    width: 40%;
+    height: 60px;
+}
+
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    min-width : 175px;
+    right: 1%;
+    top: 1%;
+} */

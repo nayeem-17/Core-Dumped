@@ -1,0 +1,6 @@
+.comment {
+    width:100%;
+    display: flex;
+    background: white;
+    border-radius: 20px;
+}
