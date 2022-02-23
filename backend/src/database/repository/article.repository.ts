@@ -127,6 +127,14 @@ class ArticleRepository extends Repository {
                 `;
     if (sortBy === 'views') {
       query += ' ORDER BY VIEWS DESC';
+    } else if (sortBy === 'upvotes') {
+      query += ` ORDER BY (SELECT COUNT(*)
+                          FROM ARTICLE_REACT 
+                          WHERE REACT='Y' AND ARTICLE_ID=A.ID) DESC`;
+    } else if (sortBy === 'downvotes') {
+      query += ` ORDER BY (SELECT COUNT(*)
+                          FROM ARTICLE_REACT 
+                          WHERE REACT='N' AND ARTICLE_ID=A.ID) DESC`;
     } else {
       query += ' ORDER BY CREATED_AT DESC';
     }

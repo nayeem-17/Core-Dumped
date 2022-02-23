@@ -114,6 +114,18 @@ class QuestionRepository extends Repository {
                 `;
     if (sortBy === 'views') {
       query += ' ORDER BY VIEWS DESC';
+    } else if (sortBy === 'answers') {
+      query += ` ORDER BY (SELECT COUNT(*) 
+                            FROM ANSWER
+                            WHERE QUESTION_ID=Q.ID) DESC`;
+    } else if (sortBy === 'upvotes') {
+      query += ` ORDER BY (SELECT COUNT(*) 
+                          FROM QUESTION_REACT 
+                          WHERE REACT='Y' AND QUESTION_ID=Q.ID) DESC`;
+    } else if (sortBy === 'downvotes') {
+      query += ` ORDER BY (SELECT COUNT(*) 
+                          FROM QUESTION_REACT 
+                          WHERE REACT='N' AND QUESTION_ID=Q.ID) DESC`;
     } else {
       query += ' ORDER BY CREATED_AT DESC';
     }

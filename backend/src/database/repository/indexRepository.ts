@@ -21,20 +21,20 @@ class IndexRepository extends Repository {
   };
 
   topQuestions = async () => {
-    const query = `SELECT ID 
-                  FROM 
-                  QUESTION 
-                  WHERE ROWNUM <= 50
-                  ORDER BY UPDATED_AT DESC`;
+    const query = `SELECT * 
+                  FROM (SELECT ID 
+                        FROM QUESTION 
+                        ORDER BY CREATED_AT DESC)
+                  WHERE ROWNUM<=50`;
     const result = await this.query(query, []);
     return result;
   };
   topArticles = async () => {
-    const query = `SELECT ID 
-                  FROM 
-                  ARTICLE
-                  WHERE ROWNUM <= 50
-                  ORDER BY UPDATED_AT DESC`;
+    const query = `SELECT * 
+                  FROM (SELECT ID 
+                        FROM ARTICLE 
+                        ORDER BY CREATED_AT DESC)
+                  WHERE ROWNUM<=50`;
     const result = await this.query(query, []);
     return result;
   };

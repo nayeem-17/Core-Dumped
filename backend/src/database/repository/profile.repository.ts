@@ -201,6 +201,10 @@ class ProfileRepository extends Repository {
                             FROM 
                             ARTICLE
                             WHERE CONTRIBUTED_BY=P.ID) DESC`;
+    } else if (sortBy === 'answer_count') {
+      query += ` ORDER BY (SELECT COUNT(*) 
+                            FROM ANSWER
+                            WHERE CONTRIBUTED_BY=P.ID) DESC`;
     }
     // <<<<<<< shouse
 

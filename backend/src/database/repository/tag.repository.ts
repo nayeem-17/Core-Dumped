@@ -6,9 +6,21 @@ export default class TagRepository extends Repository {
   }
 
   async getTagData(tagId: string) {
-    const query = `SELECT * 
-                        FROM TAG
-                        WHERE ID=:tagId`;
+    const query = `SELECT T.ID ID,
+                          T.TITLE TITLE,
+                          T.DESCRIPTION DESCRIPTION,
+                          T.SYNONYMS SYNONYMS,
+                          T.CREATED_AT CREATED_AT,
+                          T.UPDATED_AT UPDATED_AT,
+                          NVL( (SELECT COUNT(*) 
+                                FROM QUESTION_TAG QT
+                                WHERE QT.TAG_ID=T.ID), 0) QUESTION_COUNT,
+                          NVL( (SELECT COUNT(*) 
+                                FROM ARTICLE_TAG AT
+                                WHERE AT.TAG_ID=T.ID), 0) ARTICLE_COUNT
+                        FROM TAG T
+                        WHERE ID=:tagId
+                        `;
     const result = await this.query(query, [tagId]);
     return result;
   }

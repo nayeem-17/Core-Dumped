@@ -1,7 +1,14 @@
-# Core-Dumped
+# Core Dumped
+## Introduction
+This is our term project for level 2 term 2.  
+
 ## How to run this project to your local machine
 ### Connecting to Oracle Database
-1. **Create a user**
+
+If you're connecting to a remote database, you'll need to install instant client to your local machine. Here is [HOW](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/installing-oracle-database-instant-client.html)
+
+1. **Create a user**  
+    Log in as sysdba in sqlplus. Then run this following command in sqlplus:
  ```sqlplus
    create user c##coredumped identified by password
  ```
@@ -9,15 +16,15 @@
 ```sqlplus
   grant all privileges to c##coredumped
  ```
-3. Copy the [schema]('./backend/src/database/schema/) directory and change directory. Then login to sqlplus 
+3. Copy the [schema](./backend/src/database/schema/) directory and change directory. Then login to sqlplus 
 ```powershell
  sqlplus c##coredumped/password
 ```
-4. Now run the [tables](./backend/src/database/schema/DDL_tables.sql),[triggers](./backend/src/database/schema/DDL_triggers.sql) and [procedures](./backend/src/database/schema/procedures.sql) SQL files.
+1. Now run the [tables](./backend/src/database/schema/DDL_tables.sql),[triggers](./backend/src/database/schema/DDL_triggers.sql) and [procedures](./backend/src/database/schema/DDL_procedures.sql) SQL files.
 ```sqlplus
  @DDL_tables.sql;
  @DDL_triggers.sql;
- @procedures.sql;
+ @DDL_procedures.sql;
 ```
 ### Install all dependencies
 
@@ -36,9 +43,15 @@ cd ./backend && pm2 start --name=backend npm -- start
 ### Now start the frontend 
 
 ```bash
-cd ../frontend && pm2 start --name=frontend npm -- start
+cd ../frontend && pm2 start --name=frontend npm -- start && cd ..
 ```
 
+## See the logs
+
+### To see the logs you've to run the following command:
+```
+  pm2 logs
+```
 
 ## Documentation
 
@@ -48,3 +61,10 @@ http://localhost:3000/api-docs
 ```
 Here is the pdf version of the documentation: [Here](./backend_doc.pdf)
 
+---
+
+**This project is supervised by** [Rifat Shahriar](https://github.com/rifatshahriyar).
+
+**Authors:**
+  - [Zannatul Naim](https://github.com/nayeem-17)
+  - [Aszadur Rahman Rakin](https://github.com/rakin000)
