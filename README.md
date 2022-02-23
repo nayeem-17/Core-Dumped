@@ -1,7 +1,7 @@
 # Core Dumped
 ## Introduction
 
-A simple question-answering website with blog posting feature, inspired by stackoverflow and quora(quora X stackOverflow).
+A simple question-answering website with a blog posting feature, inspired by StackOverflow and quora(quora X StackOverflow).
 Extensively uses the rich text editor [Quill](https://github.com/quilljs/quill) and [ReactQuill](https://github.com/zenoamaro/react-quill).
 
 Submitted for CSE216-Database Sessional.  
@@ -33,7 +33,7 @@ Submitted for CSE216-Database Sessional.
     ```
 - ### Connecting to Oracle Database
 
-  If you're connecting to a remote database, you'll need to install instant client to your local machine. Here is [HOW](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/installing-oracle-database-instant-client.html)
+  If you're connecting to a remote database, you'll need to install the instant client to your local machine. Here is [HOW](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/installing-oracle-database-instant-client.html)
 
   1. **Create a user**  
      Log in as sysdba in sqlplus. Then run this following command in sqlplus:
@@ -56,7 +56,7 @@ Submitted for CSE216-Database Sessional.
   ```
 - ### Install all dependencies
 
-  You have to install pm2 globally to run this project.You can install it by running the following command:
+  You have to install pm2 globally to run this project. You can install it by running the following command:
   ```bash
   npm i -g pm2 
   ```
@@ -83,7 +83,7 @@ Submitted for CSE216-Database Sessional.
 
 ## Documentation
 # Backend
-We have created api documentation for the backend of this project. After running this project, you can access the documentation by visiting the following link:
+We have created API documentation for the backend of this project. After running this project, you can access the documentation by visiting the following link:
 ```
 http://localhost:3000/api-docs
 ```
@@ -99,14 +99,16 @@ Code for all the components.
 Describes how the components will be displayed.
 
 3. [**Utilities**](./frontend/src/utils/)
-Used for fetching data from backend, uses [axios](https://axios-http.com/docs/intro).
+Used for fetching data from the backend, uses [axios](https://axios-http.com/docs/intro).
 
 4. [**App.tsx**](./frontend/src/App.tsx)
 Primarily contains all the route declarations.
 
 
 -----
-**This project is supervised by** [Rifat Shahriar](https://github.com/rifatshahriyar).
-**Authors:**
+## **Supervisor**
+
+- [Dr. Rifat Shahriyar](https://github.com/rifatshahriyar)
+## **Contributors**
   - [Zannatul Naim](https://github.com/nayeem-17)
   - [Aszadur Rahman Rakin](https://github.com/rakin000)
