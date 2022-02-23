@@ -96,8 +96,9 @@ body {
 .container {
   display: grid;
   grid-template-columns: 20% 60% 20%;
+  padding:3px;
   width: 100vw;
-  height: 90vh;
+  height: 95vh;
   position: fixed;
   /* margin-top: 60px; */
   left: 0;
@@ -125,7 +126,7 @@ body {
   grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 2;
-  margin-left: 5px;
+  /* margin-left: 3px; */
   width: 100%;
   border-radius: 10px;
 }
@@ -140,8 +141,8 @@ body {
   display: inline-block;
   /* flex-direction: column; */
   align-items: center;
-  margin-left: 4px;
-  margin-right: 4px;
+  margin-left: 3px;
+  margin-right: 3px;
   position: relative;
   width: 100%;
   border-radius: 10px;
@@ -177,7 +178,7 @@ body {
   background: var(--clr-gainsboro);
   max-width: var(--fixed-width);
   margin: 0 auto;
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
   padding: 1rem 2rem;
   border-radius: var(--radius);
   color: var(--clr-black);

@@ -8,6 +8,8 @@ export interface TagInfo {
   CREATED_AT?: string ;
   UPDATED_AT?: string;
   SYNONYMS?: string ;
+  ARTICLE_COUNT?: number;
+  QUESTION_COUNT?: number;
 }
 
 export const defaultTagInfo = {

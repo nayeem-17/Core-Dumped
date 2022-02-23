@@ -37,6 +37,7 @@ function App() {
       {/* <Route path='/organization' element={} /> */}
       <Route path='/post/article' element={<CreateArticle/>} />
       <Route path='/test' element={<Test/>} />
+      <Route path="*" element={<Test/>} />
       </Routes>
       </CookiesProvider>
   );

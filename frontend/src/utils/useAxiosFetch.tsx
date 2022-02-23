@@ -27,7 +27,8 @@ const useAxiosFetch = (setData: (d: any) => void, url:string,token: string, dep?
                 setLoading(false);
             }
         }).catch(function (e) {
-        if (!unmounted) {
+            // console.log(e);
+            if (!unmounted) {
             setError(true);
             setErrorMessage(e.message);
             setLoading(false);

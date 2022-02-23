@@ -47,7 +47,7 @@ const Feed = () => {
           <div className="container-left feed">
             <LeftPanel id={0}></LeftPanel>
           </div>
-          <Paper className="container-center">
+          <Paper className="container-center" sx={{background:'var(--clr-gainsboro)'}}>
             <Dialog
               open={showAddQuestion}
               onClose={() => setShowAddQuestion(false)}
@@ -62,12 +62,12 @@ const Feed = () => {
             </Dialog>
 
             <CardContent>
-              <Divider></Divider>
+              {/* <Divider></Divider> */}
               <Typography variant="h4" fontWeight="bold">
                 Top Questions
               </Typography>
               <Divider></Divider>
-              <Box sx={{ maxHeight: "500px", overflow: "auto" }}>
+              <Box sx={{ maxHeight: "500px", overflow: "auto",padding:'5px'}}>
                 {topQuestions.map((post) => {
                   return (
                     <QuestionThumbnail
@@ -80,12 +80,12 @@ const Feed = () => {
             </CardContent>
 
             <CardContent>
-              <Divider></Divider>
+              {/* <Divider></Divider> */}
               <Typography variant="h4" fontWeight="bold">
                 Top Articles
               </Typography>
               <Divider></Divider>
-              <Box sx={{ maxHeight: "500px", overflow: "auto" }}>
+              <Box sx={{ maxHeight: "500px", overflow: "auto",padding:'5px'}}>
                 {topArticles.map((post) => {
                   return (
                     <ArticleThumbnail

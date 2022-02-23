@@ -7,6 +7,7 @@ import {
     IconButton,
     List,
     ListItem,
+    Paper,
     Stack,
     TextField,
     Typography,
@@ -255,7 +256,7 @@ export default function EditArticle({ id = undefined }: EditProps) {
                             <Add></Add>
                             <Typography variant="body2">Add tags</Typography>
                         </IconButton>
-                        <Box sx={{ width: "400px", maxHeight: "200px" }}>
+                        <Box sx={{ width: "400px", maxHeight: "200px",position:'relative',zIndex:'1' }}>
                             {showSearchTags && (
                                 <>
                                     <TextField
@@ -265,7 +266,7 @@ export default function EditArticle({ id = undefined }: EditProps) {
                                         value={searchString}
                                         onChange={(e) => setSearchString(e.target.value)}
                                     />
-                                    <List sx={{ maxHeight: "200px", overflow: "auto" }}>
+                                    <Paper sx={{ maxHeight: "200px", overflow: "auto", position:'absolute'}}>
                                         {searchResults?.map((item) => {
                                             return (
                                                 <ListItem key={item.ID}>
@@ -276,7 +277,7 @@ export default function EditArticle({ id = undefined }: EditProps) {
                                                 </ListItem>
                                             );
                                         })}
-                                    </List>
+                                    </Paper>
                                 </>
                             )}
                         </Box>

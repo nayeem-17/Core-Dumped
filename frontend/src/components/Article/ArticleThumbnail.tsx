@@ -21,7 +21,7 @@ export default function ArticleThumbnail({id}:ArticleProps){
       <Card
         className="article-container"
         key={"article-thumbnail-" + id}
-        sx={{ padding: "10px", maxWidth:'100%' }}
+        sx={{ padding: "10px",maxWidth:'100%'}}
       >
         <ArticleTags id={id}/>
         <Box key={"article-thumbnail-" + id}>

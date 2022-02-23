@@ -41,12 +41,12 @@ export default function Tag () {
             <div className='container-left'> 
                 <LeftPanel id={4}/>
             </div>
-            <div className='container-right'>
+            <Paper className='container-right'>
                 <Tabs value={tabValue} onChange={handleChange} orientation="vertical">
                     <Tab value="question" label="Questions"></Tab>
                     <Tab value="article" label="Articles"></Tab>
                 </Tabs>
-            </div>
+            </Paper>
         </div>
     </>);
 } 

@@ -46,7 +46,7 @@ export default function ProfileNotifications({username}:ProfileProps) {
            maxHeight: "300px",
            right: "0",
            width: "300px",
-           overflow:'auto'
+           overflow: "auto",
          }}
        >
          <CardContent
@@ -55,15 +55,23 @@ export default function ProfileNotifications({username}:ProfileProps) {
              padding: "10px",
            }}
          >
-           {data.map((notif) => {
-             return (
-               <Card key={notif.ID} sx={{marginBottom:'5px',padding:'10px'}} onClick={()=>markReadNotif(notif.ID)}>
-                 <Link className="link" to={notif.LINK}>
-                   <Typography variant="body2">{notif.MESSAGE}</Typography>
-                 </Link>
-               </Card>
-             );
-           })}
+           {data.length === 0 ? (
+             <Typography variant="body1">{"No new notification"}</Typography>
+           ) : (
+             data.map((notif) => {
+               return (
+                 <Card
+                   key={notif.ID}
+                   sx={{ marginBottom: "5px", padding: "10px" }}
+                   onClick={() => markReadNotif(notif.ID)}
+                 >
+                   <Link className="link" to={notif.LINK}>
+                     <Typography variant="body2">{notif.MESSAGE}</Typography>
+                   </Link>
+                 </Card>
+               );
+             })
+           )}
          </CardContent>
        </Card>
      </>

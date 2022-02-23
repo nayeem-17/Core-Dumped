@@ -24,7 +24,7 @@ export default function ProfileMessages({username}:ProfileProps) {
            maxHeight: "300px",
            right: "0",
            width: "300px",
-           overflow:'auto'
+           overflow: "auto",
          }}
        >
          <CardContent
@@ -33,11 +33,13 @@ export default function ProfileMessages({username}:ProfileProps) {
              padding: "10px",
            }}
          >
-           {data?.map((msg) => {
-             return (
-               <Message id={msg.ID} key={'message-'+msg.ID}></Message>
-             );
-           })}
+           {data?.length === 0 ? (
+             <Typography variant="body1">{"No new message"}</Typography>
+           ) : (
+             data?.map((msg) => {
+               return <Message id={msg.ID} key={"message-" + msg.ID}></Message>;
+             })
+           )}
          </CardContent>
        </Card>
      </>

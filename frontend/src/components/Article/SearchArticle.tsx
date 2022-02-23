@@ -19,10 +19,10 @@ export default function SearchTag() {
         setSearchInfo({...searchInfo,sortBy:newValue});
     };
     
-    const fetchSetSearchResults = (responseData:any) => {
+ 
+    useAxiosPost((responseData:any) => {
         setSearchInfo({...searchInfo,searchResults:responseData});
-    }
-    useAxiosPost(fetchSetSearchResults,'/article/search',searchInfo,cookies.token,[searchInfo.searchString,searchInfo.sortBy]);
+    },'/article/search',searchInfo,cookies.token,[searchInfo.searchString,searchInfo.sortBy]);
     
     return (<CardContent sx={{padding:'10px'}}>
     <Typography variant="h3">
@@ -32,6 +32,8 @@ export default function SearchTag() {
     <Tabs value={searchInfo.sortBy} onChange={handleTabValue}>
         <Tab value="views" label="Views"/>
         <Tab value="created_at" label="Recent"/>
+        <Tab value="upvotes" label="Most Upvotes" />
+        <Tab value="downvotes" label="Most Downvotes" />
     </Tabs>
     <Box className="search-results" sx={{maxHeight:'700px',overflow:'auto'}}>
         {

@@ -34,6 +34,9 @@ export default function SearchQuestion() {
     <Tabs value={searchInfo.sortBy} onChange={handleTabValue}>
         <Tab value="views" label="Views"/>
         <Tab value="created_at" label="Recent"/>
+        <Tab value="answers" label="Most Answered"/>
+        <Tab value="upvotes" label="Most Upvotes" />
+        <Tab value="downvotes" label="Most Downvotes"/> 
     </Tabs>
     <Box className="search-results" sx={{maxHeight:'700px',overflow:'auto'}}>
         {

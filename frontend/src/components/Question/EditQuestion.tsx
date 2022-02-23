@@ -1,5 +1,5 @@
 import { Add, Cancel } from "@mui/icons-material";
-import { Box, Button, Card, CardContent, IconButton, List, ListItem, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, CardContent, IconButton, List, ListItem, Paper, TextField, Typography } from "@mui/material";
 import axios from "axios";
 import React,{ useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
@@ -225,7 +225,7 @@ export default function EditQuestion({ id = undefined }: EditProps) {
               <Add></Add>
               <Typography variant="body2">Add tags</Typography>
           </IconButton>
-          <Box sx={{ width: "400px", maxHeight: "200px" }}>
+          <Box sx={{ width: "400px", maxHeight: "200px",position:'relative' }}>
             {showSearchTags && (
               <>
                 <TextField
@@ -235,7 +235,7 @@ export default function EditQuestion({ id = undefined }: EditProps) {
                   value={searchString}
                   onChange={(e) => setSearchString(e.target.value)}
                 />
-                <List sx={{ maxHeight: "200px", overflow: "auto" }}>
+                <Paper sx={{ maxHeight: "200px", overflow: "auto", zIndex:'1',position:"absolute"}}>
                   {searchResults?.map((item) => {
                     return (
                       <ListItem key={item.ID}>
@@ -248,7 +248,7 @@ export default function EditQuestion({ id = undefined }: EditProps) {
                       </ListItem>
                     );
                   })}
-                </List>
+                </Paper>
               </>
             )}
           </Box>
