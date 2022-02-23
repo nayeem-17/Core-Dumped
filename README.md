@@ -1,6 +1,10 @@
 # Core Dumped
 ## Introduction
-This is our term project for level 2 term 2.  
+
+A simple question-answering website with blog posting feature, inspired by stackoverflow and quora(quora X stackOverflow).
+Extensively uses the rich text editor [Quill](https://github.com/quilljs/quill) and [ReactQuill](https://github.com/zenoamaro/react-quill).
+
+Submitted for CSE216-Database Sessional.  
 
 ## How to run this project to your local machine
 ### Connecting to Oracle Database
@@ -54,17 +58,31 @@ cd ../frontend && pm2 start --name=frontend npm -- start && cd ..
 ```
 
 ## Documentation
-
+# Backend
 We have created api documentation for the backend of this project. After running this project, you can access the documentation by visiting the following link:
 ```
 http://localhost:3000/api-docs
 ```
 Here is the pdf version of the documentation: [Here](./backend_doc.pdf)
 
----
+# Frontend
+Typescript template of [create-react-app](https://create-react-app.dev/) is used for displaying data.
 
+1. [**Components**](./frontend/src/components/):
+Code for all the components.
+
+2. [**Pages**](./frontend/src/pages/)
+Describes how the components will be displayed.
+
+3. [**Utilities**](./frontend/src/utils/)
+Used for fetching data from backend, uses [axios](https://axios-http.com/docs/intro).
+
+4. [**App.tsx**](./frontend/src/App.tsx)
+Primarily contains all the route declarations.
+
+
+-----
 **This project is supervised by** [Rifat Shahriar](https://github.com/rifatshahriyar).
-
 **Authors:**
   - [Zannatul Naim](https://github.com/nayeem-17)
   - [Aszadur Rahman Rakin](https://github.com/rakin000)
