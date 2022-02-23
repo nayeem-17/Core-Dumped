@@ -5,7 +5,14 @@ A simple question-answering website with blog posting feature, inspired by stack
 Extensively uses the rich text editor [Quill](https://github.com/quilljs/quill) and [ReactQuill](https://github.com/zenoamaro/react-quill).
 
 Submitted for CSE216-Database Sessional.  
-
+## Development Stack
+- Frontend
+  - React
+  - React-Quill
+- Backend
+  - Express
+- Database
+  - Oracle-12c
 ## How to run this project to your local machine
 - ### Clone this repository and create `env` file
   1. First clone this repository to your local machine.
