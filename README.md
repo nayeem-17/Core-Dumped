@@ -2,8 +2,14 @@
 ## How to run this project to your local machine
 ### Connecting to Oracle Database
 1. **Create a user**
+ ```sqlplus
+    create user c##coredumped identified by password
+ ```
 2. Grant the user the role of **DBA** or appropriate role.
-3. Now pump the [sqldump file](./backend/src/database/schema/init.sql) into the database.
+```sqlplus
+  grant all privileges to c##coredumped
+ ```
+ 3. Now pump the [sqldump file](./backend/src/database/schema/init.sql) into the database.
 ### Install all dependencies
 
 You have to install pm2 globally to run this project.You can install it by running the following command:
