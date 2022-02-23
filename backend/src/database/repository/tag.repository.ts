@@ -25,11 +25,11 @@ export default class TagRepository extends Repository {
     return result;
   }
   async getTagThumbnail(tagId: string) {
-    const query = `SELECT ID,TITLE
+    const query =  `SELECT ID,TITLE
                     FROM TAG 
                     WHERE ID=:tagId `;
-    const result = await this.query(query, [tagId]);
-    return result;
+    const result = await this.query(query,[tagId]);
+    return result ;
   }
   async getProfileInterests(username: string) {
     const query = `SELECT T.ID ID,
@@ -44,10 +44,12 @@ export default class TagRepository extends Repository {
     return result;
   }
   async searchTag(searchString: string, sortBy?: string) {
-    const query1 = `SELECT SEARCH_TAG(:searchString) RESULT FROM DUAL`;
+    // const query1 = `SELECT SEARCH_TAG(:searchString) RESULT FROM DUAL`;
     let query = `SELECT T.ID
                     FROM TAG T
                     WHERE LOWER(T.TITLE) 
+                    LIKE '%'||LOWER(REPLACE(:searchString,' ','%'))||'%'
+                    OR LOWER(T.SYNONYMS)
                     LIKE '%'||LOWER(REPLACE(:searchString,' ','%'))||'%'
                      `;
     if (sortBy == 'question') {

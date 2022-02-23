@@ -97,7 +97,8 @@ class ArticleRepository extends Repository {
   ) => {
     const query = `UPDATE ARTICLE
                     SET CONTENT=:articleContent,
-                        TITLE=:articleTitle
+                        TITLE=:articleTitle,
+                        UPDATED_AT=CURRENT_TIMESTAMP
                     WHERE ID = :articleId`;
     const params = [articleContent, articleTitle, articleId];
     const result = await this.query(query, params);

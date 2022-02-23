@@ -3,7 +3,7 @@ import {Navigate} from 'react-router-dom';
 import Navbar from '../../components/Navbar/Navbar';
 import { useCookies } from 'react-cookie';
 import useAxiosFetch from '../../utils/useAxiosFetch';
-import { Box, Card, CardContent, Dialog, DialogContent, DialogTitle, Divider, IconButton, Paper, Typography } from '@mui/material';
+import { Box, Card, CardContent, Dialog, DialogContent, DialogTitle, Divider, IconButton, ListItem, Paper, Typography } from '@mui/material';
 import { Add } from '@mui/icons-material';
 import QuestionThumbnail from '../../components/Question/QuestionThumbnail';
 import ArticleThumbnail from '../../components/Article/ArticleThumbnail';
@@ -67,13 +67,13 @@ const Feed = () => {
                 Top Questions
               </Typography>
               <Divider></Divider>
-              <Box sx={{ maxHeight: "500px", overflow: "auto",padding:'5px'}}>
+              <Box sx={{maxHeight: "500px", overflow: "auto"}}>
                 {topQuestions.map((post) => {
                   return (
-                    <QuestionThumbnail
+                    <ListItem sx={{padding:'1px'}}><QuestionThumbnail
                       key={post.ID}
                       id={post.ID}
-                    ></QuestionThumbnail>
+                    ></QuestionThumbnail></ListItem>
                   );
                 })}
               </Box>
@@ -88,10 +88,10 @@ const Feed = () => {
               <Box sx={{ maxHeight: "500px", overflow: "auto",padding:'5px'}}>
                 {topArticles.map((post) => {
                   return (
-                    <ArticleThumbnail
+                    <ListItem sx={{padding:'1px'}}><ArticleThumbnail
                       key={post.ID}
                       id={post.ID}
-                    ></ArticleThumbnail>
+                    ></ArticleThumbnail></ListItem>
                   );
                 })}
               </Box>

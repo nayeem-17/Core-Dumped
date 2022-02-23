@@ -30,7 +30,9 @@ class AnswerRepository extends Repository {
     return result;
   };
   getAnswerVoteInfo = async (answerId: string, userId: string) => {
-    const query = `SELECT
+
+    const query = 
+    `SELECT
       NVL( ( SELECT REACT FROM ANSWER_REACT WHERE REACTED_BY=:userId AND ANSWER_ID=:answerId), 'EMPTY' ) USER_VOTE,
       NVL( ( SELECT COUNT( * ) FROM ANSWER_REACT WHERE ANSWER_ID =:answerId AND UPPER( REACT ) = 'Y' ), 0 ) UPVOTES,
       NVL( ( SELECT COUNT( * ) FROM ANSWER_REACT WHERE ANSWER_ID =:answerId AND UPPER( REACT ) = 'N' ), 0 ) DOWNVOTES   
@@ -64,13 +66,17 @@ class AnswerRepository extends Repository {
     const query = `SELECT A.ID ID
                     FROM ANSWER A JOIN QUESTION Q
                     ON A.QUESTION_ID=Q.ID
-                    WHERE Q.ID=:questionId`;
+                    WHERE Q.ID=:questionId
+                    ORDER BY (SELECT COUNT(*) 
+                              FROM ANSWER_REACT AR
+                              WHERE ANSWER_ID=A.ID) DESC`;
     const result = await this.query(query, [questionId]);
     return result;
   };
   updateAnswer = async (answerId: number, answer: string) => {
     const query = `UPDATE ANSWER 
-                    SET ANSWER=:answer 
+                    SET ANSWER=:answer,
+                        UPDATED_AT=CURRENT_TIMESTAMP
                     WHERE ID=:answerId`;
     const result = await this.query(query, [answer, answerId]);
     return result;

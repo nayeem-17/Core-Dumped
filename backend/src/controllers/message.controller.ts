@@ -2,8 +2,8 @@ import MessageRepository from '../database/repository/message.repository';
 
 const messageRepository = new MessageRepository();
 class MessageController {
-  getMessage = async (req: any, res: any) => {
-    const { messageId } = req.params;
+  getMessage = async(req:any,res:any) => {
+    const {messageId} = req.params;
     const result = await messageRepository.getMessage(messageId);
     if (!result.success)
       return res.status(400).json({
@@ -14,7 +14,7 @@ class MessageController {
       success: true,
       data: result.data,
     });
-  };
+  }
   getUserMessages = async (req: any, res: any) => {
     const { userId } = req.body;
     const result = await messageRepository.getUserMessages(userId);

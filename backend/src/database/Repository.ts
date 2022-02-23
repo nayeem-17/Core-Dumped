@@ -2,7 +2,7 @@ import { Connection } from 'oracledb';
 
 import oracledb from 'oracledb';
 oracledb.autoCommit = true;
-oracledb.fetchAsString = [oracledb.CLOB];
+oracledb.fetchAsString = [oracledb.CLOB ];
 
 import { connection, createConnection } from './connectDB';
 
@@ -30,9 +30,9 @@ class Repository {
       return {
         success: true,
         data: data.rows,
-        outBinds: data.outBinds,
+        outBinds: data.outBinds
       };
-    } catch (error) {
+    } catch (error:any) {
       console.log(error);
       return {
         success: false,

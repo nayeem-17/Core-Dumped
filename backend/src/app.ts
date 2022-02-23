@@ -50,7 +50,7 @@ app.use('/answer', answerRouter);
 app.use('/comment', commentRouter);
 app.use('/tag', tagRouter);
 app.use('/notification', notificationRouter);
-app.use('/message', messageRouter);
+app.use('/message',messageRouter);
 // catch 404 and forward to error handler
 app.use(function (req: Request, res: Response, next: NextFunction) {
   next(createError(404));

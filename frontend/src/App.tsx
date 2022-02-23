@@ -28,15 +28,11 @@ function App() {
       <Route path='/profile/edit' element={<EditProfile/>} />
       <Route path='/settings' element={<EditProfile/>} />
       <Route path='/question/:id' element={<Question/>} />
-      {/* <Route path='/question/:id/edit' element={<EditQuestion/>} /> */}
       <Route path='/question' element={<Question/>} />
       <Route path='/article/:id' element={<Article/>} />
       <Route path='/article' element={<Article/>} />
       <Route path='/tag/:tagId' element={<Tag/>} />
       <Route path='/tag' element={<Tag/>} />
-      {/* <Route path='/organization' element={} /> */}
-      <Route path='/post/article' element={<CreateArticle/>} />
-      <Route path='/test' element={<Test/>} />
       <Route path="*" element={<Test/>} />
       </Routes>
       </CookiesProvider>

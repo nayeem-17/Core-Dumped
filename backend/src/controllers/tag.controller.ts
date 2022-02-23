@@ -15,7 +15,7 @@ export default class TagController {
       data: result.data,
     });
   };
-  getTagThumbnail = async (req: any, res: any) => {
+  getTagThumbnail= async (req: any, res: any) => {
     const { tagId } = req.params;
     const result = await tagRepository.getTagThumbnail(tagId);
     if (!result.success)

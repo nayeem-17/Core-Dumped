@@ -58,7 +58,7 @@ class QuestionRepository extends Repository {
     const result = await this.query(query, [questionId]);
     return result;
   };
-  getQuestionThumbnail = async (questionId: number) => {
+  getQuestionThumbnail = async(questionId: number) => {
     const query = `SELECT Q.ID ID, 
                           Q.TITLE TITLE, 
                 
@@ -72,7 +72,7 @@ class QuestionRepository extends Repository {
                     WHERE Q.ID=:id`;
     const result = await this.query(query, [questionId]);
     return result;
-  };
+  }
   editQuestionData = async (
     questionId: number,
     questionTitle: string,
@@ -114,18 +114,21 @@ class QuestionRepository extends Repository {
                 `;
     if (sortBy === 'views') {
       query += ' ORDER BY VIEWS DESC';
-    } else if (sortBy === 'answers') {
+    }
+    else if (sortBy === 'answers' ){
       query += ` ORDER BY (SELECT COUNT(*) 
                             FROM ANSWER
                             WHERE QUESTION_ID=Q.ID) DESC`;
-    } else if (sortBy === 'upvotes') {
+    }
+    else if (sortBy === 'upvotes') {
       query += ` ORDER BY (SELECT COUNT(*) 
                           FROM QUESTION_REACT 
-                          WHERE REACT='Y' AND QUESTION_ID=Q.ID) DESC`;
-    } else if (sortBy === 'downvotes') {
+                          WHERE REACT='Y' AND QUESTION_ID=Q.ID) DESC` ;
+    }
+    else if (sortBy === 'downvotes') {
       query += ` ORDER BY (SELECT COUNT(*) 
                           FROM QUESTION_REACT 
-                          WHERE REACT='N' AND QUESTION_ID=Q.ID) DESC`;
+                          WHERE REACT='N' AND QUESTION_ID=Q.ID) DESC` ;
     } else {
       query += ' ORDER BY CREATED_AT DESC';
     }

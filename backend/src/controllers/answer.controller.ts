@@ -32,10 +32,10 @@ class AnswerController {
       data: result.data,
     });
   };
-  getAnswerVoteInfo = async (req: any, res: any) => {
-    const { answerId } = req.params;
-    const { userId } = req.body;
-    const result = await answerRepository.getAnswerVoteInfo(answerId, userId);
+  getAnswerVoteInfo = async (req:any,res:any) => {
+    const {answerId} = req.params;
+    const {userId} = req.body;
+    const result = await answerRepository.getAnswerVoteInfo(answerId,userId);
     if (!result.success)
       return res.status(400).json({
         success: false,
@@ -45,7 +45,7 @@ class AnswerController {
       success: true,
       data: result.data,
     });
-  };
+  }
   getAnswersOfQuestion = async (req: any, res: any) => {
     const { questionId } = req.params;
     const result = await answerRepository.getAnswersOfQuestion(questionId);
@@ -108,10 +108,10 @@ class AnswerController {
       success: true,
     });
   };
-  upVoteAnswer = async (req: any, res: any) => {
-    const { answerId } = req.params;
-    const { userId } = req.body;
-    const result = await answerRepository.upVoteAnswer(answerId, userId);
+  upVoteAnswer =async (req: any,res:any) => {
+    const {answerId} = req.params;
+    const {userId} = req.body; 
+    const result = await answerRepository.upVoteAnswer(answerId,userId);
     if (!result.success) {
       return res.status(400).json({
         success: false,
@@ -121,11 +121,11 @@ class AnswerController {
     return res.status(200).json({
       success: true,
     });
-  };
-  downVoteAnswer = async (req: any, res: any) => {
-    const { answerId } = req.params;
-    const { userId } = req.body;
-    const result = await answerRepository.downVoteAnswer(answerId, userId);
+  }
+  downVoteAnswer =async (req: any,res:any) => {
+    const {answerId} = req.params;
+    const {userId} = req.body; 
+    const result = await answerRepository.downVoteAnswer(answerId,userId);
     if (!result.success) {
       return res.status(400).json({
         success: false,
@@ -135,6 +135,6 @@ class AnswerController {
     return res.status(200).json({
       success: true,
     });
-  };
+  }
 }
 export default AnswerController;

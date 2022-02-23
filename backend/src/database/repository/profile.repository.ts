@@ -40,7 +40,7 @@ class ProfileRepository extends Repository {
                     	USERNAME = :username`;
     const result = await this.query(query, [server_url, username]);
     return result;
-  };
+  }
   getStats = async (username: string) => {
     const query = `SELECT P.REPUTATION, 
                             (SELECT COUNT(*) 
@@ -201,10 +201,10 @@ class ProfileRepository extends Repository {
                             FROM 
                             ARTICLE
                             WHERE CONTRIBUTED_BY=P.ID) DESC`;
-    } else if (sortBy === 'answer_count') {
+    } else if (sortBy === 'answer_count' ) {
       query += ` ORDER BY (SELECT COUNT(*) 
                             FROM ANSWER
-                            WHERE CONTRIBUTED_BY=P.ID) DESC`;
+                            WHERE CONTRIBUTED_BY=P.ID) DESC` ;
     }
     // <<<<<<< shouse
 
