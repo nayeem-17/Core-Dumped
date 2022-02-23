@@ -3,13 +3,22 @@
 ### Connecting to Oracle Database
 1. **Create a user**
  ```sqlplus
-    create user c##coredumped identified by password
+   create user c##coredumped identified by password
  ```
 2. Grant the user the role of **DBA** or appropriate role.
 ```sqlplus
   grant all privileges to c##coredumped
  ```
- 3. Now pump the [sqldump file](./backend/src/database/schema/init.sql) into the database.
+3. Copy the [schema]('./backend/src/database/schema/) directory and change directory. Then login to sqlplus 
+```powershell
+ sqlplus c##coredumped/password
+```
+4. Now run the [tables](./backend/src/database/schema/DDL_tables.sql),[triggers](./backend/src/database/schema/DDL_triggers.sql) and [procedures](./backend/src/database/schema/procedures.sql) SQL files.
+```sqlplus
+ @DDL_tables.sql;
+ @DDL_triggers.sql;
+ @procedures.sql;
+```
 ### Install all dependencies
 
 You have to install pm2 globally to run this project.You can install it by running the following command:
