@@ -1,19 +1,19 @@
 # Core Dumped
 ## Introduction
 
-A simple question-answering website with a blog posting feature, inspired by StackOverflow and quora(quora X StackOverflow).
+A simple question-answering website with blog posting feature, inspired by [stackoverflow](https://stackoverflow.com/) and [Quora](https://www.quora.com/)(Quora X stackoverflow).
 Extensively uses the rich text editor [Quill](https://github.com/quilljs/quill) and [ReactQuill](https://github.com/zenoamaro/react-quill).
 
-Submitted for CSE216-Database Sessional.  
+Submitted for [CSE216-Database Sessional](https://cse.buet.ac.bd/studies/course_detail/CSE216).  
 ## Development Stack
 - Frontend
-  - React
-  - React-Quill
-  - MUI
+  - [React](https://reactjs.org/)
+  - [React-Quill](https://zenoamaro.github.io/react-quill/)
+  - [MUI](mui.com)
 - Backend
-  - Express
+  - [Express](https://expressjs.com/)
 - Database
-  - Oracle-12c, Oracle19c
+  - Oracle-12c, [Oracle-19c](https://www.oracle.com/database/technologies/)
 ## How to run this project on your local machine
 - ### **Connecting to Oracle Database**
   If you're connecting to a remote database, you'll need to install the instant client to your local machine. Here is [HOW](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/installing-oracle-database-instant-client.html)
