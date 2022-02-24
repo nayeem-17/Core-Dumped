@@ -84,7 +84,7 @@ CREATE TABLE user_organization_relationship (
   username VARCHAR2 (64),
   badge_id NUMBER,
   CONSTRAINT USER_ORG_PK primary key (id),
-  constraint user_org_fk foreign key (organization_id) references organization (id),
+  constraint user_org_fk foreign key (organization_id) references organization (id) ON DELETE CASCADE,
   constraint user_org_fk_1 foreign key (username) references profile (username) ON DELETE CASCADE ,
   constraint user_org_fk_2 foreign key (badge_id) references badge (id) ON DELETE CASCADE
 );
