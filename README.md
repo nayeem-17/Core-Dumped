@@ -9,10 +9,11 @@ Submitted for CSE216-Database Sessional.
 - Frontend
   - React
   - React-Quill
+  - MUI
 - Backend
   - Express
 - Database
-  - Oracle-12c
+  - Oracle-12c,Oracle19c
 ## How to run this project to your local machine
 - ### Clone this repository and create `env` file
   1. First clone this repository to your local machine.
@@ -48,11 +49,11 @@ Submitted for CSE216-Database Sessional.
   ```powershell
    sqlplus c##coredumped/password
   ```
-  4. Now run the [tables](./backend/src/database/schema/DDL_tables.sql),[triggers](./backend/src/database/schema/DDL_triggers.sql) and [procedures](./backend/src/database/schema/DDL_procedures.sql) SQL files.
+  4. Now run the [tables](./backend/src/database/schema/DDL_tables.sql),[triggers](./backend/src/database/schema/DDL_triggers.sql) and [procedures](./backend/src/database/schema/DML_procedures.sql) SQL files.
   ```sqlplus
    @DDL_tables.sql;
    @DDL_triggers.sql;
-   @DDL_procedures.sql;
+   @DML_procedures.sql;
   ```
 - ### Install all dependencies
 
