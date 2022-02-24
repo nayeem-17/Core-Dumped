@@ -14,26 +14,8 @@ Submitted for CSE216-Database Sessional.
   - Express
 - Database
   - Oracle-12c,Oracle19c
-## How to run this project to your local machine
-- ### Clone this repository and create `env` file
-  1. First clone this repository to your local machine.
-  2. Create a `.env` file in the backend directory of this repository. Now put these lines in the file:
-      ```bash
-      PORT=8000
-      NODE_ENV=development
-      JWT_SECRET=U~A^O8vk510OZs
-      SECRET_TOKEN='abc'
-      DB_USER=tommy
-      DB_PASSWORD=tommy
-      DB_CONNECTION_STRING=localhost:1521/ORCLCDB.localdomain
-      MAIN_URL=http://0.0.0.0:8000
-      ```
-  3. Now, create a `.env` file in the frontend directory of this repository. Now put these lines in the file:
-    ```bash
-    REACT_APP_SERVER_URL=http://0.0.0.0:8000
-    ```
+## How to run this project on your local machine
 - ### Connecting to Oracle Database
-
   If you're connecting to a remote database, you'll need to install the instant client to your local machine. Here is [HOW](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/installing-oracle-database-instant-client.html)
 
   1. **Create a user**  
@@ -55,6 +37,23 @@ Submitted for CSE216-Database Sessional.
    @DDL_triggers.sql;
    @DML_procedures.sql;
   ```
+ - ### Clone this repository and create `env` file
+  1. First clone this repository to your local machine.
+  2. Create a `.env` file in the backend directory of this repository. Now put these lines in the file:
+      ```bash
+      PORT=8000
+      NODE_ENV=development
+      JWT_SECRET=U~A^O8vk510OZs
+      SECRET_TOKEN='abc'
+      DB_USER='c##coredumped' 
+      DB_PASSWORD=password
+      DB_CONNECTION_STRING=localhost:1521/ORCLCDB.localdomain # or run SELECT * FROM GLOBAL_NAME; and give appropriate connection string 
+      MAIN_URL=http://0.0.0.0:8000
+      ```
+  3. Now, create a `.env` file in the frontend directory of this repository. Now put these lines in the file:
+    ```bash
+    REACT_APP_SERVER_URL=http://0.0.0.0:8000
+    ```
 - ### Install all dependencies
 
   You have to install pm2 globally to run this project. You can install it by running the following command:
@@ -100,7 +99,7 @@ Code for all the components.
 Describes how the components will be displayed.
 
 3. [**Utilities**](./frontend/src/utils/)
-Used for fetching data from the backend, uses [axios](https://axios-http.com/docs/intro).
+Used for fetching and sending data to the backend, uses [axios](https://axios-http.com/docs/intro).
 
 4. [**App.tsx**](./frontend/src/App.tsx)
 Primarily contains all the route declarations.
