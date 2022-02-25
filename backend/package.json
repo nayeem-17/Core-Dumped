@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "start": "npm run build && npm run lint && node ./dist/bin/server.js",
+        "start": "ts-node-dev --no-notify --respawn --transpile-only src/bin/server.ts",
         "dev": "ts-node-dev --no-notify --respawn --transpile-only src/bin/server.ts",
         "clean": "rm -rf dist",
         "build": " tsc -p .",
