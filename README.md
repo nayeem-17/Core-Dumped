@@ -48,7 +48,7 @@ Submitted for [CSE216-Database Sessional](https://cse.buet.ac.bd/studies/course_
     SECRET_TOKEN='abc'
     DB_USER='c##coredumped' 
     DB_PASSWORD=password
-    DB_CONNECTION_STRING=localhost:1521/ORCLCDB.localdomain # or run SELECT * FROM GLOBAL_NAME; and give appropriate connection string 
+    DB_CONNECTION_STRING=localhost:1521/ORCLCDB # or run SELECT * FROM GLOBAL_NAME; and give appropriate connection string 
     MAIN_URL=http://0.0.0.0:8000
     ```
    5. **Now, create a `.env` file in the frontend directory of this repository. Now put these lines in the file:**
@@ -57,38 +57,39 @@ Submitted for [CSE216-Database Sessional](https://cse.buet.ac.bd/studies/course_
     ```
 - ### **Install all dependencies**
 
-  You have to install pm2 globally to run this project. You can install it by running the following command:
+  1. Install [npm](https://www.npmjs.com/) & [node](https://nodejs.org/en/download/)
+  2. Go to the [backend](./backend/) directory and run the following command:
+    ```bash
+    npm install
+    ```
+  3. Go to the [frontend](./frontend/) directory and run the following command:
   ```bash
-  npm i -g pm2 
-  ```
-  Now,
-  ```bash
-  cd ./backend && npm i && cd ../frontend && npm i && cd ..
+  npm install
   ```
 - ### Now start the backend server
-  ```bash
-  cd ./backend && pm2 start --name=backend npm -- start
-  ```
+   Go to the [backend](./backend/) directory and run the following command:
+    ```bash
+    npm start
+    ```
+
 - ### Now start the frontend 
 
-  ```bash
-  cd ../frontend && pm2 start --name=frontend npm -- start && cd ..
-  ```
+  Go to the [frontend](./frontend/) directory and run the following command:
+    ```bash
+    npm start
+    ```
+  - You have to run the above commands in a new terminal window.
 
-## See the logs
-
-### To see the logs you've to run the following command:
-```
-  pm2 logs
-```
 
 # **Documentation**
+
 ## **Backend**
 We have created API documentation for the backend of this project. After running this project, you can access the documentation by visiting the following link:
 ```
 http://localhost:8000/api-docs
 ```
 Here is the pdf version of the documentation: [Here](./backend_doc.pdf)
+
 
 ## **Frontend**
 Typescript template of [create-react-app](https://create-react-app.dev/) is used for displaying data.
@@ -106,7 +107,6 @@ Used for fetching and sending data to the backend, uses [axios](https://axios-ht
 Primarily contains all the route declarations.
 
 
-------
 ------
 ------
 ------
