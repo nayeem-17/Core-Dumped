@@ -46,7 +46,7 @@ Submitted for [CSE216-Database Sessional](https://cse.buet.ac.bd/studies/course_
     NODE_ENV=development
     JWT_SECRET=U~A^O8vk510OZs
     SECRET_TOKEN='abc'
-    DB_USER='c##coredumped' 
+    DB_USER=c##coredumped
     DB_PASSWORD=password
     DB_CONNECTION_STRING=localhost:1521/ORCLCDB # or run SELECT * FROM GLOBAL_NAME; and give appropriate connection string 
     MAIN_URL=http://0.0.0.0:8000
