@@ -28,6 +28,7 @@ Submitted for [CSE216-Database Sessional](https://cse.buet.ac.bd/studies/course_
     grant all privileges to c##coredumped
    ```
  - ### **Clone this repository and create `env` file**
+    You can import the [sql dump](./backend/src/database/schema/C##COREDUMPED.sql) file and skip the first 3 steps. 
    1. **First clone this repository to your local machine.**
    2. **Change your directory to [schema](./backend/src/database/schema/). Then login to sqlplus** 
     ```sqlplus
